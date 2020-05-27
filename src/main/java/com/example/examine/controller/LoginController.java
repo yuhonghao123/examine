@@ -1,5 +1,6 @@
 package com.example.examine.controller;
 
+import com.example.examine.pojo.Result;
 import com.example.examine.pojo.UserPo;
 import com.example.examine.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public UserPo login(@RequestBody Map<String, String> login) throws Exception {
-        UserPo userPojo=loginService.login(login.get("username"), login.get("password"));
-        if (userPojo==null){
-            throw new Exception("There is no such user");
+    public Result login(@RequestBody Map<String, String> login) {
+        UserPo userPo=loginService.login(login.get("username"), login.get("password"));
+        if (userPo==null){
+            return Result.fail();
         }else {
-            return userPojo;
+            return Result.success(userPo);
         }
     }
 }

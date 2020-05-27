@@ -9,4 +9,7 @@ public interface UserDao {
 
     @Select("select userId,username,password,mobile_numbers,time from users where username = #{username} and password = #{password}")
     UserPo getByUserNameAndPassword(String username, String password);
+
+    @Select("select username from users where userId = #{userId}")
+    String getUserNameByUserId(int username);
 }

@@ -16,9 +16,19 @@ public class DynamicPo {
 
     private int userId;
 
-    private TagEnum tag;
+    private String tag;
 
     private Date time;
+
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getDynamicId() {
         return dynamicId;
@@ -68,11 +78,11 @@ public class DynamicPo {
         this.userId = userId;
     }
 
-    public TagEnum getTag() {
+    public String getTag() {
         return tag;
     }
 
-    public void setTag(TagEnum tag) {
+    public void setTag(String tag) {
         this.tag = tag;
     }
 
